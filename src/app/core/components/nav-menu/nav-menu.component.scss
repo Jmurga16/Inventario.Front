@@ -1,0 +1,72 @@
+.container-menu {
+    display       : flex;
+    flex-direction: column;
+    position      : absolute;
+    top           : 0;
+    bottom        : 0;
+    left          : 0;
+    right         : 0;
+}
+
+.menu-is-mobile .menu-toolbar {
+    position: fixed;
+    z-index : 2;
+}
+
+h1.app-name {
+    margin-left: 8px;
+}
+
+.menu-sidenav-container {
+    flex: 1;
+}
+
+.menu-is-mobile .menu-sidenav-container {
+    flex: 1 0 auto;
+}
+
+.menu-button {
+    transition: 300ms ease-in-out;
+    transform : rotate(0deg);
+}
+
+.menu-button.rotated {
+    transform: rotate(180deg);
+}
+
+.submenu {
+    overflow-y      : hidden;
+    transition      : transform 300ms ease;
+    transform       : scaleY(0);
+    transform-origin: top;
+    padding-left    : 30px;
+}
+
+.submenu.expanded {
+    transform: scaleY(1);
+}
+
+.clsBtnDemo {
+    margin-left    : auto;
+    color          : white;
+    text-decoration: none;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-bar {
+    background-color: #00c032;
+}
+
+::ng-deep .mat-slide-toggle.mat-checked:not(.mat-disabled) .mat-slide-toggle-thumb {
+    background-color: #00fd06;
+}
+
+.active {
+    font-weight: bold !important;
+}
+
+.clsBtnLogOut {
+    margin-left    : auto;
+    color          : white;
+    text-decoration: none;
+    cursor         : pointer;
+}

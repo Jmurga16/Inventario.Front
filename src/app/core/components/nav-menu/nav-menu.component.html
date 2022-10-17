@@ -1,0 +1,49 @@
+<div class="container-menu" [class.menu-is-mobile]="mobileQuery.matches">
+
+    <mat-toolbar color="primary" class="menu-toolbar">
+        <button mat-icon-button (click)="snav.toggle()">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <h1 class="app-name">Menu</h1>
+
+        <a class="clsBtnLogOut" (click)="fnLogout()">Cerrar Sesión</a>
+
+    </mat-toolbar>
+
+    <mat-sidenav-container class="menu-sidenav-container" [style.marginTop.px]="mobileQuery.matches ? 56 : 0">
+        <mat-sidenav #snav [mode]="mobileQuery.matches ? 'over' : 'side'" [fixedInViewport]="mobileQuery.matches"
+            fixedTopGap="56">
+            <mat-nav-list>
+
+                <div *ngFor="let nav of ListMenu; let index = index">
+                    <mat-list-item (click)="nav.subMenu!=null  ? fnShowSubMenu(index)  : fnRouting(nav.route)"
+                        class="parent">
+                        <span class="full-width"  [ngClass]="{active: nav.route == getRouterURL}">{{nav.name}}</span>
+                        <mat-icon mat-list-icon>{{nav.icon}}</mat-icon>
+                        <mat-icon class="menu-button" [ngClass]="{rotated : nav.show}" *ngIf="nav.subMenu!=null">
+                            expand_more
+                        </mat-icon>
+                    </mat-list-item>
+
+                    <div class="submenu" [ngClass]="{expanded : nav.show }" *ngIf="nav.show">
+                        <div *ngFor="let sub1 of nav.subMenu">
+                            <div *ngIf="nav.idMenu==sub1.idParent">
+                                <mat-list-item class="parent">
+                                    <span class="full-width">{{sub1.name}}</span>
+                                    <mat-icon mat-list-icon>{{sub1.icon}}</mat-icon>
+                                </mat-list-item>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </mat-nav-list>
+        </mat-sidenav>
+
+        <mat-sidenav-content>
+            <router-outlet></router-outlet>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+
+</div>

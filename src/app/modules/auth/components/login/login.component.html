@@ -1,0 +1,13 @@
+<div class="form-box body-login">
+    <div class="header-text">
+        Login
+    </div>
+    <form (ngSubmit)="fnLogin()">
+        <input placeholder="Usuario" type="text" [formControl]="User">
+
+        <input placeholder="Contraseña" type="password" [formControl]="Password">
+
+        <button mat-raised-button color="primary" type="submit">Ingresar</button>
+    </form>
+
+</div>
