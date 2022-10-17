@@ -1,7 +1,5 @@
 import { Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { environment } from 'src/environments/environment';
-
 
 @Component({
     selector: 'app-layout',
@@ -9,15 +7,12 @@ import { environment } from 'src/environments/environment';
 })
 export class LayoutComponent implements OnInit {
 
-
     constructor(
         private router: Router,
         public ngZone: NgZone,
 
     ) {
-
-   
-
+  
     }
 
     ngOnInit(): void {

@@ -6,12 +6,12 @@ const routes: Routes = [
     {
         path: '',
         component: LayoutComponent,
-        /* children: [
+        children: [
               {
                   path: 'users',
                   loadChildren: () => import('../../../modules/users/users.module').then(m => m.UsersModule)
               },
-        ] */
+        ]
     },
 
     {

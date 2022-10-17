@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule, Routes } from '@angular/router';
-import { LayoutRoutingModule } from './layout-routing.module';
-import { NavMenuComponent } from '../nav-menu/nav-menu.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MatButtonModule } from '@angular/material/button';
@@ -14,22 +12,27 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { LayoutComponent } from './layout.component';
+import { UsersComponent } from './users.component';
+import { UsersRoutingModule } from './users-routing.module';
+import { UsersListComponent } from './components/users-list/users-list.component';
+import { UsersFormComponent } from './components/users-form/users-form.component';
 
 
 @NgModule({
     declarations: [
-        LayoutComponent,
-        NavMenuComponent,
+        UsersComponent,
+        UsersListComponent,
+        UsersFormComponent
     ],
     imports: [
         CommonModule,
-        LayoutRoutingModule,
+        UsersRoutingModule,
+
         MatListModule,
         MatMenuModule,
         MatSelectModule,
         MatSidenavModule,
-        FormsModule, 
+        FormsModule,
         ReactiveFormsModule,
         MatIconModule,
         MatInputModule,
@@ -39,4 +42,4 @@ import { LayoutComponent } from './layout.component';
     ],
     exports: [RouterModule],
 })
-export class LayoutModule { }
+export class UsersModule { }

@@ -21,13 +21,12 @@ export class MenuService {
     const httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
     const params = {
-      nOpcion: nOpcion,
-      pParametro: pParametro.join('|')
+      nOpcion: nOpcion
     };
 
-    return this.http.post<Menu[]>(urlEndPoint, JSON.stringify(params), { headers: httpHeaders });
+    return this.http.get<Menu[]>(urlEndPoint, { headers: httpHeaders });
   }
 
-  
+
 
 }

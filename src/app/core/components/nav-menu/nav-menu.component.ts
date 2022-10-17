@@ -42,7 +42,7 @@ export class NavMenuComponent implements OnInit {
   //#region Inicializar
   ngOnInit(): void {
 
-    //this.fnListMenu()
+    this.fnListMenu()
 
   }
   //#endregion
