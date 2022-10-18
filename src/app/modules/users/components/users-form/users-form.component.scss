@@ -1,0 +1,22 @@
+.clstitulo {
+    background-color: #334d6e;
+    color           : #fff;
+    text-align      : center;
+    border-radius   : calc(.25rem - 1px) calc(.25rem - 1px) 0 0;
+    height          : 3rem;
+    padding-top     : 0.5rem
+}
+
+@media (min-width: 700px) {
+    .selectResp {
+        bottom: 0.75rem;
+    }
+
+    .pb-1 {
+        padding-bottom: 1rem !important;
+    }
+}
+
+.selectMat {
+    display: initial;
+}

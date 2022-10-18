@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  ApiURL: "https://api-inventory.azurewebsites.net/",
 };

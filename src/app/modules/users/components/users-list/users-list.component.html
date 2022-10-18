@@ -1,1 +1,104 @@
-<p>users-list works!</p>
+<div class="nav-container-general">
+
+    <!--Titulo-->
+    <div class="header-app">
+        <h1 style=" font-weight: bold;">Gestión de {{appName}}</h1>
+    </div>
+
+
+    <!--Zona de botones flotantes-->
+    <div class="fab-container">
+        <div>
+            <button matTooltipPosition="left" mat-raised-button mat-mini-fab class="fab-secondary" color="primary"
+                matTooltip="Agregar Usuario" (click)="fnAbrirModal(0,0)">
+                <span class="material-icons">add</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!--Filtro-->
+    <div class="form row">
+        <div class="col-md-10">
+            <mat-form-field appearance="standard" style="width: 80%;">
+                <mat-label>Buscar Usuario</mat-label>
+                <input matInput (keyup)="applyFilter($event)" [formControl]="txtFiltro" #input>
+                <button style="outline: none;" *ngIf="txtFiltro.value" mat-button matSuffix mat-icon-button
+                    aria-label="Clear" (click)="fnClearFilter()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <!--Boton: Tabla-->
+    <div id="listaMobile" class=" mat-elevation-z8 ">
+        <div class="example-container">
+
+            <table mat-table [dataSource]="dataSource" matSort style="width: 100%;" aria-describedby="TablaUsuario">
+
+                <!-- Codigo -->
+                <ng-container matColumnDef="nIdUsuario">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaId" id="Codigo"> Codigo </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Código: '>
+                        {{element.nIdUsuario}} </td>
+                </ng-container>
+
+                <!-- Nombre -->
+                <ng-container matColumnDef="sNombrePersona">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaUsuario" id="Nombre"> Nombre
+                    </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Nombre: '>
+                        {{element.sNombrePersona}} </td>
+                </ng-container>
+
+                <!-- Usuario -->
+                <ng-container matColumnDef="sNombreUsuario">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaUsuario" id="Usuario">
+                        Usuario
+                    </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Usuario: '>
+                        {{element.sNombreUsuario}} </td>
+                </ng-container>
+
+                <!-- Rol -->
+                <ng-container matColumnDef="sNombreRol">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaId" id="Rol"> Rol </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Rol: '>
+                        {{element.sNombreRol}} </td>
+                </ng-container>
+
+                <!-- Estado -->
+                <ng-container matColumnDef="sEstado">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaId" id="Estado"> Estado </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Estado: '>
+                        {{element.sEstado}} </td>
+                </ng-container>
+
+                <!--Acciones: Editar/Eliminar/Activar-->
+                <ng-container matColumnDef="Acciones">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaId" id="Accion"> Acciones
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="example-button-row " *ngIf="element.nIdUsuario!=1">
+                            <button mat-raised-button color="accent" style="margin-right: 8px;"
+                                (click)="fnAbrirModal(1,element.nIdUsuario)">Editar</button>
+                            <button *ngIf="element.sEstado=='Activo'" mat-raised-button color="warn"
+                                (click)="fnCambiarEstado(element.nIdUsuario,0)">Eliminar</button>
+                            <button *ngIf="element.sEstado=='Inactivo'" mat-raised-button class="buttonActive"
+                                (click)="fnCambiarEstado(element.nIdUsuario,1)">Activar</button>
+                        </div>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <!--Mat Paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+
+</div>

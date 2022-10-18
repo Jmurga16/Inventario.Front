@@ -16,7 +16,11 @@ import { UsersComponent } from './users.component';
 import { UsersRoutingModule } from './users-routing.module';
 import { UsersListComponent } from './components/users-list/users-list.component';
 import { UsersFormComponent } from './components/users-form/users-form.component';
-
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatTableModule } from '@angular/material/table';
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import {MatTooltipModule} from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [
@@ -38,7 +42,12 @@ import { UsersFormComponent } from './components/users-form/users-form.component
         MatInputModule,
         MatPaginatorModule,
         MatToolbarModule,
-        MatButtonModule
+        MatButtonModule,
+        MatFormFieldModule,
+        MatTableModule,
+        MatDialogModule,
+        MatDatepickerModule,
+        MatTooltipModule
     ],
     exports: [RouterModule],
 })

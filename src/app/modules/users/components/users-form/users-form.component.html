@@ -1,1 +1,143 @@
-<p>users-form works!</p>
+<div>
+    <!--Titulo-->
+    <h1 mat-dialog-title class="clstitulo">{{sAccionModal}} Usuario</h1>
+    <!-- Formulario-->
+    <form [formGroup]="formUsuario" ngNativeValidate autocomplete="off" name="Formulario" id="new-form">
+
+        <!--Formulario: Nombres-->
+        <div class="row pb-1">
+            <div class="col-md-6">
+                <mat-form-field style="display:initial">
+                    <mat-label>Nombres</mat-label>
+                    <input matInput type="text" maxlength="50" onkeydown="return /[a-zA-ZñÑá-úÁ-Ú ]/i.test(event.key)"
+                        formControlName="sNombres" autocomplete="nope" name="Nombres">
+                </mat-form-field>
+            </div>
+            <!--Formulario: Apellidos-->
+            <div class="col-md-6">
+                <mat-form-field style="display:initial">
+                    <mat-label>Apellidos</mat-label>
+                    <input matInput type="text" maxlength="50" onkeydown="return /[a-zA-ZñÑá-úÁ-Ú ]/i.test(event.key)"
+                        formControlName="sApellidos" autocomplete="nope" name="Apellidos">
+                </mat-form-field>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <!--Formulario: Tipo de Documento-->
+            <div class="col-md-3">
+                <mat-form-field class="selectMat selectResp" appearance="standard">
+                    <mat-label>Tipo Documento</mat-label>
+                    <mat-select formControlName="nTipoDoc">
+                        <mat-option *ngFor="let opc of lDocumentos" [value]="opc.valor">
+                            {{opc.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!--Formulario: Numero de Documento-->
+            <div class="col-md-3">
+                <mat-form-field style="display:initial">
+                    <mat-label>N° Documento</mat-label>
+                    <input matInput type="number" max="99999999" maxlength="8" required formControlName="sNumDoc"
+                        autocomplete="off" name="Documento">
+                </mat-form-field>
+            </div>
+
+            <!--Formulario: Sexo-->
+            <div class="col-md-3">
+                <mat-form-field class="selectMat selectResp" appearance="standard">
+                    <mat-label>Sexo</mat-label>
+                    <mat-select formControlName="sSexo">
+                        <mat-option *ngFor="let opc of lSexo" [value]="opc.abrev">
+                            {{opc.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+            <!--Formulario: Rol-->
+            <div class="col-md-3">
+                <mat-form-field class="selectMat selectResp" appearance="standard">
+                    <mat-label>Rol</mat-label>
+                    <mat-select formControlName="nIdRol">
+                        <mat-option *ngFor="let opc of lRoles" [value]="opc.valor">
+                            {{opc.nombre}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <!--Formulario: Direccion-->
+            <div class="col-md-6">
+                <mat-form-field style="display:initial">
+                    <mat-label>Direccion</mat-label>
+                    <input matInput type="search" formControlName="sDireccion" autocomplete="off" name="Direccion"
+                        id="Direccion" />
+                </mat-form-field>
+            </div>
+
+            <!--Formulario: Telefono-->
+            <div class="col-md-3">
+                <mat-form-field style="display:initial">
+                    <mat-label>Telefono</mat-label>
+                    <input matInput type="number" max="999999999" required formControlName="nTelefono"
+                        autocomplete="nope" name="Telefono">
+                </mat-form-field>
+            </div>
+
+            <!--Formulario: Fecha de Nacimiento-->
+            <div class="col-md-3">
+                <mat-form-field appearance="standard" class="selectMat selectResp">
+                    <mat-label>Fecha de Nacimiento</mat-label>
+                    <input matInput type="search" [matDatepicker]="picker" formControlName="dFechaNacimiento"
+                        (dateChange)="fnCambiarFecha($event)" autocomplete="off" name="Fecha" id="Fecha"
+                        [max]="dFechaHoy">
+                    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                    <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12  justify-content-center">
+
+                <!--Formulario: Contraseña-->
+                <mat-form-field style="display:initial">
+                    <mat-label>Contraseña</mat-label>
+                    <input matInput type="password" formControlName="sContrasenia" name="somePassword"
+                        autocomplete="new-password" #password />
+                </mat-form-field>
+
+            </div>
+
+        </div>
+
+        <!--Botones-->
+
+        <div class="row" style="padding-top: 1rem;">
+            <!--Botones: Grabar-->
+            <div class="col-md-6">
+                <button type="button" color="primary" style="width: 100%;" mat-raised-button
+                    (click)="fnGrabar()">Grabar</button>
+            </div>
+
+            <!--Botones: Cancelar-->
+            <div class="col-md-6">
+                <button type="button" color="warn" style="width: 100%;" mat-raised-button
+                    (click)="fnCerrarModal(0)">Cancelar</button>
+            </div>
+
+        </div>
+    </form>
+
+</div>

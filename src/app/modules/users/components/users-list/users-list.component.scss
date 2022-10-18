@@ -1,0 +1,66 @@
+table {
+    width: 100%;
+}
+
+.header-app {
+    text-align: center;
+    margin-top:1rem;
+}
+h1{
+    margin-bottom: 0px;
+}
+
+.filtros {
+    display        : flex;
+    flex-direction : row;
+    flex-wrap      : wrap;
+    justify-content: center;
+}
+
+.inputNombre {
+    width       : 90%;
+    padding-top : 14px;
+    margin-right: 1rem;
+}
+
+.inputAsignatura {
+    width       : 90%;
+    padding-top : 14px;
+    margin-right: 1rem;
+}
+
+.selectEstado {
+    margin-right: 1rem;
+}
+
+.example-button-row button,
+.example-button-row a {
+    margin-right: 0.5rem;
+}
+
+.botones {
+    margin-left: 1rem;
+    margin-top : 1rem;
+    float      : right;
+}
+
+.clsColumnaId {
+    width: 15%;
+}
+
+.clsColumnaUsuario {
+    width: 20%;
+}
+
+.buttonActive {
+    background-color: forestgreen;
+    color           : white;
+}
+
+.example-container {
+    /*height: 38rem;*/
+    width   : 100%;
+    overflow: auto;
+}
+
+

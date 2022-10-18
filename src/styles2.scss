@@ -1,0 +1,370 @@
+//HTML Mat Table
+@media screen and (max-width: 960px) {
+	#listaMobile .mat-elevation-z8 {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
+	#listaMobile .mat-header-row {
+		display: none;
+	}
+
+	#listaMobile .mat-table {
+		background: transparent;
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.mat-row {
+			display           : block;
+			overflow          : hidden;
+			height            : auto;
+			position          : relative;
+			clear             : both;
+			box-shadow        : 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+			//background-color: #fff;
+			border-top-style  : solid;
+			border-top-color  : #3f51b5;
+			border-top-width  : 2px;
+			border-radius     : 3px;
+
+			+.mat-row {
+				margin-top: 24px;
+			}
+		}
+
+		.mat-cell {
+			text-align: left !important;
+			display   : block;
+			width     : 100%;
+			padding   : 0 16px;
+			margin    : 16px 0;
+			border    : 0 none;
+
+			&:first-child {
+				padding: 0 48px 0 16px;
+
+				a {
+					font-size     : 20px;
+					// font-weight: 400;
+					color         : inherit;
+				}
+
+				// &:before {
+				//     display: none;
+				// }
+			}
+
+			&.m-card-sub-title {
+				margin-top: -8px;
+				padding   : 0 48px 0 16px;
+				color     : rgba(0, 0, 0, 0.54);
+			}
+		}
+
+		.has_label_on_mobile {
+			&:before {
+				content    : attr(data-label);
+				display    : inline;
+				font-weight: bold;
+			}
+		}
+
+		.header_mobile {
+			&:before {
+				content    : attr(id);
+				display    : inline;
+				font-weight: bold;
+			}
+		}
+
+		.mat-column-action {
+			width   : auto;
+			padding : 8px 10px 0px 0px !important;
+			margin  : 0;
+			position: absolute;
+			top     : 0;
+			right   : 0;
+
+			&:before {
+				display: none;
+			}
+		}
+
+		.mat-column-sNombres {
+			width    : 70%;
+			font-size: 20px;
+		}
+
+		.mat-icon-button {
+			height: 0px;
+		}
+	}
+
+	#listaMobile .mat-paginator {
+		margin-top: 24px;
+	}
+}
+
+.swal2-html-container {
+	white-space: pre-line !important;
+}
+
+.transporte {
+	.clsprincipal {
+		padding: 80px 15px 0px 15px;
+	}
+
+	.card-header {
+		background-color: rgb(51, 77, 110);
+		color           : white;
+		text-align      : center;
+	}
+
+	.row mat-form-field {
+		width: 100%;
+	}
+
+	.row .mat-paginator-container mat-form-field {
+		width: 56px !important;
+	}
+
+	.mat-paginator-range-label {
+		margin: auto;
+	}
+
+	.title-card {
+		background-color: #334d6e;
+		color           : white;
+		font-size       : 20px;
+		text-align      : center;
+	}
+
+	.title-main {
+		background-color: #334d6e;
+		color           : white;
+		font-size       : 25px;
+		text-align      : center;
+		margin-top      : 70px;
+	}
+
+	.button {
+		width: 100%;
+	}
+
+	.clean {
+		border: 1px solid #ff4081;
+	}
+
+	.example-container {
+		position     : relative;
+		max-width    : 100%;
+		overflow     : auto;
+		border-radius: 4px;
+	}
+
+	table {
+		width       : 100%;
+		table-layout: fixed;
+
+		.mat-form-field-infix {
+			width: 100% !important;
+		}
+	}
+
+	th.mat-header-cell,
+	td.mat-cell,
+	td.mat-footer-cell,
+	th.mat-header-cell:first-of-type,
+	td.mat-cell:first-of-type,
+	td.mat-cell:last-of-type,
+	th.mat-header-cell:last-of-type {
+		padding: 0.25em 0.5em !important;
+	}
+
+	.mt {
+		display    : flex;
+		align-items: center;
+	}
+
+	mat-checkbox label {
+		margin-bottom: 0 !important;
+	}
+
+	.ng-select .ng-select-container {
+		min-height: 44.7px !important;
+
+		.ng-value-container {
+			padding-bottom: 0%;
+		}
+
+		.ng-value-container .ng-value {
+			line-height: 1.125;
+		}
+	}
+
+	.fab-container {
+		position      : fixed;
+		top           : 100px;
+		right         : 50px;
+		z-index       : 150;
+		display       : flex;
+		flex-direction: column;
+		align-items   : center;
+	}
+
+	.fab-container button {
+		margin-bottom: 5px;
+	}
+
+	mat-card-title {
+		color: #334d6e;
+	}
+
+	mat-panel-title {
+		color      : #002c4b;
+		font-weight: bold;
+		padding-top: 10px;
+	}
+
+	.error-select {
+		top       : calc(100% - 1.6666666667em);
+		position  : absolute;
+		box-sizing: border-box;
+		width     : 100%;
+		overflow  : hidden;
+		font-size : 75%;
+	}
+
+	.mat-form-field-disabled input,
+	.mat-select-disabled .mat-select-value {
+		color: black;
+	}
+
+	ng-select-value,
+	.ng-select.ng-select-disabled .ng-select-container .ng-value-container .ng-value {
+		color: black !important;
+	}
+
+	.middle {
+		display        : flex;
+		justify-content: space-evenly;
+	}
+
+	.pink {
+		color: #ff4081;
+	}
+
+	@media only screen and (min-width: 960px) {
+		.clsSeparador {
+			height      : 100%;
+			border-right: 2px solid rgb(236, 0, 140);
+		}
+
+		.form-row .pad {
+			padding-left : 5px !important;
+			padding-right: 5px !important;
+		}
+
+		.mostrar-mobile {
+			display: none;
+		}
+	}
+
+	@media only screen and (max-width: 960px) {
+		.clsSeparador {
+			height    : 100%;
+			border-top: 2px solid rgb(236, 0, 140);
+		}
+
+		.ocultar-mobile {
+			display: none;
+		}
+	}
+}
+
+// Html table responsive card
+
+@media screen and (max-width: 960px) {
+	#listaMobile .mat-elevation-z8 {
+		background: transparent !important;
+		box-shadow: none !important;
+	}
+
+	#listaMobile .table-header-row {
+		display: none;
+	}
+
+	#listaMobile .table {
+		background: transparent;
+
+		* {
+			box-sizing: border-box;
+		}
+
+		.table-row {
+			display           : block;
+			overflow          : hidden;
+			height            : auto;
+			position          : relative;
+			clear             : both;
+			box-shadow        : 0 2px 1px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
+			//background-color: #fff;
+			border-top-style  : solid;
+			border-top-color  : rgb(255, 64, 129);
+			border-top-width  : 2px;
+			border-radius     : 3px;
+
+			+.table-row {
+				margin-top: 24px;
+			}
+		}
+
+		.table-cell {
+			text-align: left !important;
+			display   : block;
+			width     : 100%;
+			padding   : 0 16px;
+			margin    : 16px 0;
+			border    : 0 none;
+
+			&:first-child {
+				padding: 0 48px 0 16px;
+
+				a {
+					font-size: 20px;
+					color    : inherit;
+				}
+			}
+
+			&.m-card-sub-title {
+				margin-top: -8px;
+				padding   : 0 48px 0 16px;
+				color     : rgba(0, 0, 0, 0.54);
+			}
+		}
+
+		.has_label_on_mobile {
+			&:before {
+				content    : attr(data-label);
+				display    : inline;
+				font-weight: bold;
+			}
+		}
+
+		.header_mobile {
+			&:before {
+				content    : attr(id);
+				display    : inline;
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+@media (min-width: 961px) {
+	.clsButtonAttachment {
+		transform: rotate(270deg);
+	}
+}
