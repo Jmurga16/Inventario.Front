@@ -19,19 +19,21 @@ export class AuthService {
 
     }
 
-    Login(nOpcion: number, pParametro: any): Observable<any> {
+    //#region Iniciar Sesión
+    Login(sNombreUsuario: string, sContrasenia: string): Observable<any> {
         const urlEndPoint = this.url + 'api/Login';
         const httpHeaders = new HttpHeaders({ 'Content-Type': 'application/json' });
 
         const params = {
-            nOpcion: nOpcion,
-            pParametro: pParametro.join('|')
+            sNombreUsuario: sNombreUsuario,
+            sContrasenia: sContrasenia
         };
 
         return this.httpClient.post(urlEndPoint, JSON.stringify(params), { headers: httpHeaders });
     }
+    //#endregion
 
-
+    //#region Obtener Nombre de Usuario
     get currentUserValue(): boolean {
         let bValue: boolean = false;
 
@@ -40,7 +42,9 @@ export class AuthService {
         return bValue
 
     }
+    //#endregion
 
+    //#region Servicio Cerrar Sesion
     Logout() {
 
         localStorage.removeItem(this.localStorageName);
@@ -49,5 +53,6 @@ export class AuthService {
             queryParams: {},
         });
     }
+    //#endregion
 
 }

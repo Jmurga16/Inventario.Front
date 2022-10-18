@@ -144,23 +144,23 @@ export class UsersFormComponent implements OnInit {
 
       await this.usersService.fnServicePostUser(pOpcion, pParametro).subscribe({
         next: (value: any) => {
-  
+
           if (value.cod == 1) {
             Swal.fire({
-              title: `Se registró con éxito`,
+              title: value.mensaje,
               icon: 'success',
               timer: 3500
             }).then(() => {
               this.fnCerrarModal(1);
             });
           }
-  
+
         },
         error: (e) => {
           console.error(e);
         }
       });
-     
+
       return
     }
 

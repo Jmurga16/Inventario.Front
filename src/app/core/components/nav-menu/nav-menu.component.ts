@@ -14,7 +14,7 @@ import { Menu } from '../../models/Menu';
 export class NavMenuComponent implements OnInit {
 
   ListMenu: Menu[] = []
-
+  Username: string | null = ""
   mobileQuery: MediaQueryList;
   private _mobileQueryListener: () => void;
 
@@ -29,6 +29,8 @@ export class NavMenuComponent implements OnInit {
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
     this.mobileQuery.addEventListener('change', this._mobileQueryListener);
+
+    this.Username = localStorage.getItem("username")
   }
 
 

@@ -29,18 +29,15 @@ export class LoginComponent implements OnInit {
   //#region Login
   async fnLogin() {
 
-    let pParametro = [];
-    let nOpcion = 1
+    let sNombreUsuario = this.User.value;
+    let sContrasenia = this.Password.value;
 
-    pParametro.push(this.User.value);
-    pParametro.push(this.Password.value);
-
-    await this.authService.Login(nOpcion, pParametro).subscribe({
+    await this.authService.Login(sNombreUsuario, sContrasenia).subscribe({
       next: (data) => {
 
-        if (data.cod == 1) {
+        if (data[0].result == 1) {
           localStorage.setItem("username", this.User.value)
-          this.router.navigate(['/home']);
+          this.router.navigate(['/users/list']);
         }
         else {
           Swal.fire({
