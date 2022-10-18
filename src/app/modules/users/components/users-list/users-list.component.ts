@@ -129,35 +129,10 @@ export class UsersListComponent implements OnInit {
   //#endregion
 
 
-  //#region Filtrar Usuarios
-  async fnFiltrarUsuarios() {
-    let bEstado;
-
-    bEstado = this.fEstado.value == null ? 2 : this.fEstado.value;
-
-    let pParametro = [];
-    pParametro.push(this.fNombre.value);
-    pParametro.push(this.fRol.value);
-    pParametro.push(bEstado);
-
-    await this.usersService.LIS_Usuarios('02', pParametro)
-      .then((value: any) => {
-
-        this.dataSource = new MatTableDataSource(value);
-        this.dataSource.paginator = this.paginator;
-        this.dataSource.sort = this.sort;
-      },
-        (error) => {
-          console.log(error);
-        }
-      );
-  }
-  //#endregion
-
-
   //#region Eliminar/Activar
   async fnCambiarEstado(nIdUsuario: number, bEstado: number) {
 
+    let nOpcion = 3
     let sTitulo: string, sRespuesta: string;
 
     if (bEstado == 1) {
@@ -186,24 +161,27 @@ export class UsersListComponent implements OnInit {
     let pParametro = [];
     pParametro.push(nIdUsuario);
     pParametro.push(bEstado);
+    console.log(pParametro)
 
-    await this.usersService.LIS_Usuarios('06', pParametro).then(
-      (value: any) => {
 
-        if (value.mensaje == "OK") {
+    await this.usersService.fnServicePostUser(nOpcion, pParametro).subscribe({
+      next: (value: any) => {
+
+        if (value.cod == 1) {
           Swal.fire({
             title: sRespuesta,
             icon: 'success',
             timer: 3500
           })
         }
-        this.fnFiltrarUsuarios();
+        this.fnListarUsuarios();
 
       },
-      (error) => {
-        console.log(error);
+      error: (e) => {
+        console.error(e);
       }
-    );
+    });
+
   }
   //#endregion Eliminar
 

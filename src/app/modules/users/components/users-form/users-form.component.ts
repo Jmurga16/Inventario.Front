@@ -83,12 +83,10 @@ export class UsersFormComponent implements OnInit {
 
   //#region Cargar Datos para Editar
   async fnCargarDatos() {
-    let pParametro = [];
-    pParametro.push(this.nIdUsuario);
+    let nOpcion: number = 2;
 
-    await this.usersService.LIS_Usuarios('03', pParametro).then(
-      (value: any) => {
-
+    await this.usersService.fnServiceGETUserById(nOpcion, this.nIdUsuario).subscribe({
+      next: (value) => {
         this.formUsuario.controls["sNombres"].setValue(value[0].sNombres)
         this.formUsuario.controls["sApellidos"].setValue(value[0].sApellidos)
         this.formUsuario.controls["nTipoDoc"].setValue(value[0].nTipoDoc)
@@ -100,12 +98,11 @@ export class UsersFormComponent implements OnInit {
         this.formUsuario.controls["sContrasenia"].setValue(value[0].sContrasenia)
         this.formUsuario.controls["dFechaNacimiento"].setValue(value[0].dFechaNacimiento)
         this.dFechaNacimiento = value[0].dFechaNac
-
       },
-      (error) => {
-        console.log(error);
+      error: (e) => {
+        console.log(e);
       }
-    );
+    });
   }
   //#endregion 
 
@@ -126,11 +123,11 @@ export class UsersFormComponent implements OnInit {
     else if (!(await this.fnValidar())) {
       return
     }
-    
+
     else {
 
       let pParametro = [];
-      let pOpcion = this.data.accion == 0 ? '04' : '05'; // 04-> Insertar / 05-> Editar
+      let pOpcion = this.data.accion == 0 ? 1 : 2; // 1-> Insertar / 2-> Editar
 
       pParametro.push(this.formUsuario.controls["sNombres"].value);
       pParametro.push(this.formUsuario.controls["sApellidos"].value);
@@ -145,10 +142,10 @@ export class UsersFormComponent implements OnInit {
       pParametro.push(this.formUsuario.controls["nIdUsuario"].value);
 
 
-      await this.usersService.LIS_Usuarios(pOpcion, pParametro).then(
-        (value: any) => {
-
-          if (value.mensaje == "OK") {
+      await this.usersService.fnServicePostUser(pOpcion, pParametro).subscribe({
+        next: (value: any) => {
+  
+          if (value.cod == 1) {
             Swal.fire({
               title: `Se registró con éxito`,
               icon: 'success',
@@ -157,12 +154,13 @@ export class UsersFormComponent implements OnInit {
               this.fnCerrarModal(1);
             });
           }
-
+  
         },
-        (error) => {
-          console.log(error);
+        error: (e) => {
+          console.error(e);
         }
-      );
+      });
+     
       return
     }
 
