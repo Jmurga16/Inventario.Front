@@ -1,1 +1,109 @@
-<p>inventory-list works!</p>
+<div class="nav-container-general">
+
+    <!--Titulo-->
+    <div class="header-app">
+        <h1 style=" font-weight: bold;"> {{appName}}</h1>
+    </div>
+
+
+    <!--Zona de botones flotantes-->
+    <div class="fab-container">
+        <div>
+            <button matTooltipPosition="left" mat-raised-button mat-mini-fab class="fab-secondary" color="primary"
+                matTooltip="Agregar Producto" (click)="fnFormModal(0,0)">
+                <span class="material-icons">add</span>
+            </button>
+        </div>
+    </div>
+
+
+    <!--Filtro-->
+    <div class="form row">
+        <div class="col-md-10">
+            <mat-form-field appearance="standard" style="width: 80%;">
+                <mat-label>Buscar Producto</mat-label>
+                <input matInput (keyup)="applyFilter($event)" [formControl]="txtFiltro" #input>
+                <button style="outline: none;" *ngIf="txtFiltro.value" mat-button matSuffix mat-icon-button
+                    aria-label="Clear" (click)="fnClearFilter()">
+                    <mat-icon>close</mat-icon>
+                </button>
+            </mat-form-field>
+        </div>
+    </div>
+
+
+    <!--Boton: Tabla-->
+    <div id="listaMobile" class=" mat-elevation-z8 ">
+        <div class="example-container">
+
+            <table mat-table [dataSource]="dataSource" matSort style="width: 100%;" aria-describedby="TablaProducto">
+
+                <!-- Nombre -->
+                <ng-container matColumnDef="sNombre">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaNombre" id="Nombre">
+                        Producto
+                    </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Producto: '>
+                        {{element.sNombre}} </td>
+                </ng-container>
+
+                <!-- Producto -->
+                <ng-container matColumnDef="sDescripcion">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaDescripcion" id="Producto">
+                        Descripción
+                    </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Descripción: '>
+                        {{element.sDescripcion}} </td>
+                </ng-container>
+
+                <!-- Stock -->
+                <ng-container matColumnDef="nStock">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaStock" id="Stock"> Stock
+                    </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Stock: '>
+                        {{element.nStock}} </td>
+                </ng-container>
+
+                <!-- Estado -->
+                <!-- <ng-container matColumnDef="sEstado">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaId" id="Estado"> 
+                        Estado </th>
+                    <td mat-cell *matCellDef="let element" class='has_label_on_mobile' data-label='Estado: '>
+                        {{element.sEstado}} </td>
+                </ng-container> -->
+
+                <!--Acciones: Editar/Eliminar/Activar-->
+                <ng-container matColumnDef="Acciones">
+                    <th mat-header-cell *matHeaderCellDef mat-sort-header class="clsColumnaAccion" id="Accion"> Acciones
+                    </th>
+                    <td mat-cell *matCellDef="let element">
+                        <div class="example-button-row ">
+                            <button mat-icon-button color="primary" style="margin-right: 0.7rem;"
+                                matTooltip="Editar Producto" matTooltipPosition="above"
+                                (click)="fnFormModal(1,element.nIdProducto)">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button mat-icon-button color="primary" style="margin-right: 0.7rem;"
+                                matTooltip="Agregar Stock" matTooltipPosition="above"
+                                (click)="fnCambiarStock(element.nIdProducto,'Agregar',element.nStock)">
+                                <mat-icon>assignment_add</mat-icon>
+                            </button>
+                            <button *ngIf="element.nStock>0" color="primary" mat-icon-button class="buttonActive"
+                                matTooltip="Retirar Stock" matTooltipPosition="above"
+                                (click)="fnCambiarStock(element.nIdProducto,'Retirar',element.nStock)">
+                                <mat-icon>output</mat-icon>
+                            </button>
+                        </div>
+
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <!--Mat Paginator-->
+            <mat-paginator [pageSizeOptions]="[10, 25, 100]"></mat-paginator>
+        </div>
+    </div>
+
+</div>

@@ -161,9 +161,7 @@ export class UsersListComponent implements OnInit {
     let pParametro = [];
     pParametro.push(nIdUsuario);
     pParametro.push(bEstado);
-    console.log(pParametro)
-
-
+   
     await this.usersService.fnServicePostUser(nOpcion, pParametro).subscribe({
       next: (value: any) => {
 

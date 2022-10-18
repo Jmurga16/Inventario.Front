@@ -65,9 +65,6 @@ export class UsersFormComponent implements OnInit {
       dFechaNacimiento: ["", Validators.required],
       sContrasenia: ["", Validators.required],
     });
-  }
-
-  ngOnInit(): void {
 
     this.sAccionModal = this.data.accion == 0 ? "Agregar" : "Editar";
 
@@ -78,6 +75,11 @@ export class UsersFormComponent implements OnInit {
       this.formUsuario.controls["nIdUsuario"].setValue(this.nIdUsuario)
       this.fnCargarDatos();
     }
+  }
+
+  ngOnInit(): void {
+
+   
 
   }
 

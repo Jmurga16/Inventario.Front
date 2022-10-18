@@ -1,1 +1,65 @@
-<p>inventory-form works!</p>
+<div>
+    <!--Titulo-->
+    <h1 mat-dialog-title class="clstitulo">{{sAccionModal}} Producto</h1>
+    <!-- Formulario-->
+    <form [formGroup]="formGroup" autocomplete="off" name="Formulario" id="new-form">
+
+        <!--Formulario: Nombres-->
+        <div class="row">
+            <div class="col-md-12">
+                <mat-form-field style="display:initial">
+                    <mat-label>Nombre Producto</mat-label>
+                    <input matInput type="text" maxlength="50" formControlName="sNombre" autocomplete="nope"
+                        name="Nombres">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-md-12  justify-content-center">
+
+                <!--Formulario: Contraseña-->
+                <mat-form-field style="display:initial">
+                    <mat-label>Descripción</mat-label>
+                    <textarea matInput type="text" formControlName="sDescripcion">
+                        </textarea>
+                </mat-form-field>
+
+            </div>
+
+        </div>
+
+        <div class="row" *ngIf="data.accion==0">
+
+            <!--Formulario: Telefono-->
+            <div class="col-md-12">
+                <mat-form-field style="display:initial">
+                    <mat-label>Stock</mat-label>
+                    <input matInput type="number" formControlName="nStock" autocomplete="nope" name="nStock">
+                </mat-form-field>
+            </div>
+
+        </div>
+
+
+        <!--Botones-->
+
+        <div class="row" style="padding-top: 1rem;">
+            <!--Botones: Grabar-->
+            <div class="col-md-6">
+                <button type="button" color="primary" style="width: 100%;" mat-raised-button
+                    (click)="fnGrabar()">Grabar</button>
+            </div>
+
+            <!--Botones: Cancelar-->
+            <div class="col-md-6">
+                <button type="button" color="warn" style="width: 100%;" mat-raised-button
+                    (click)="fnCerrarModal(0)">Cancelar</button>
+            </div>
+
+        </div>
+    </form>
+
+</div>
