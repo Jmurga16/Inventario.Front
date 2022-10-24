@@ -1,27 +1,34 @@
 # Inventory
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.6.
+1. Clonar el repositorio en Visual Studio Code.
+2. Actualizar la ruta del Back-end si es necesario, en el archivo enviroment.ts
+3. Colocar en el terminal comando "npm install".
+4. Luego de la instalación de dependencias, colocar en el terminal "ng-serve --o"
 
-## Development server
+Credenciales de Login:
+admin
+123456
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Pantallas:
 
-## Code scaffolding
+Login:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+![image](https://user-images.githubusercontent.com/58633633/197651698-756a34f3-881f-4b79-b435-8f89f80e77cc.png)
 
-## Build
+Gestión de Usuarios:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+![image](https://user-images.githubusercontent.com/58633633/197651758-b3c9ec1a-32e7-4a85-86c9-99395399c8a7.png)
 
-## Running unit tests
+![image](https://user-images.githubusercontent.com/58633633/197651789-4a1cd184-f917-4bc6-9231-0b81cd92daea.png)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+![image](https://user-images.githubusercontent.com/58633633/197651795-c2969bc5-5b52-4adb-8acc-9db92485910b.png)
 
-## Running end-to-end tests
+Inventario:
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+![image](https://user-images.githubusercontent.com/58633633/197651820-e681ac1f-2440-4a7b-9813-8d60193183e4.png)
 
-## Further help
+![image](https://user-images.githubusercontent.com/58633633/197651834-2983868c-08b7-4b13-9183-9764c22c9e15.png)
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+![image](https://user-images.githubusercontent.com/58633633/197651857-ca446bd7-4392-4fe1-93e3-e82300476c20.png)
+
+![image](https://user-images.githubusercontent.com/58633633/197651883-5fc386c9-aecc-47ed-9e4a-dae7d36bdb5b.png)
